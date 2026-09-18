@@ -1,6 +1,17 @@
-# 3870 Count Commas in Range # 2
+# 3870. Count Commas in Range — Formula
 
-This folder contains the Python solution for **3870 Count Commas in Range # 2**.
+## Problem
+
+Count the commas used when writing every integer from `1` through `n` with standard thousands separators.
+
+## Approach
+
+For the problem's range, the integers `1000...n` each contribute one comma. The boolean expression handles values below `1000`, while `n - 999` directly counts qualifying values otherwise.
+
+## Complexity
+
+- Time: `O(1)`
+- Space: `O(1)`
 
 ## Solution
 

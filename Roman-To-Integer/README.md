@@ -1,6 +1,17 @@
-# Roman To Integer
+# 13. Roman to Integer
 
-This folder contains the Python solution for **Roman To Integer**.
+## Problem
+
+Convert a valid Roman numeral string into its integer value.
+
+## Approach
+
+A dictionary maps symbols to values. A symbol is subtracted when it is smaller than the following symbol, which handles subtractive pairs; otherwise, it is added.
+
+## Complexity
+
+- Time: `O(n)`
+- Space: `O(1)`
 
 ## Solution
 

@@ -1,6 +1,17 @@
-# 191.Number of One Bits # 2
+# 191. Number of 1 Bits — Bit Shifting
 
-This folder contains the Python solution for **191.Number of One Bits # 2**.
+## Problem
+
+Count how many set bits (`1` bits) appear in the binary representation of a positive integer.
+
+## Approach
+
+The solution repeatedly reads the least-significant bit with `n & 1`, adds it to the count when it is set, and shifts the number one position to the right until no bits remain.
+
+## Complexity
+
+- Time: `O(log n)`
+- Space: `O(1)`
 
 ## Solution
 

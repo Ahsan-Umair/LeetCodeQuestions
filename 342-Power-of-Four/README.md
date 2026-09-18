@@ -1,6 +1,17 @@
-# 342 Power of Four
+# 342. Power of Four
 
-This folder contains the Python solution for **342 Power of Four**.
+## Problem
+
+Determine whether an integer is an exact power of four.
+
+## Approach
+
+While the value is positive and divisible by four, the solution divides it by four. It is a power of four only when this process finishes at exactly `1`.
+
+## Complexity
+
+- Time: `O(log₄ n)`
+- Space: `O(1)`
 
 ## Solution
 

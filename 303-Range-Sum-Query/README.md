@@ -1,6 +1,17 @@
-# 303 Range Sum Query
+# 303. Range Sum Query — Immutable
 
-This folder contains the Python solution for **303 Range Sum Query**.
+## Problem
+
+Store an integer array and answer repeated queries for the sum of elements between two inclusive indices.
+
+## Approach
+
+The constructor builds a prefix-sum array with a leading zero. Each query subtracts `prefix[left]` from `prefix[right + 1]`, so the requested range sum is returned without scanning the range again.
+
+## Complexity
+
+- Time: `O(n) preprocessing and O(1) per query`
+- Space: `O(n)`
 
 ## Solution
 

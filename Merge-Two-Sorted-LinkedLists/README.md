@@ -1,6 +1,17 @@
-# Merge Two Sorted LinkedLists
+# 21. Merge Two Sorted Lists
 
-This folder contains the Python solution for **Merge Two Sorted LinkedLists**.
+## Problem
+
+Merge two sorted singly linked lists and return one sorted list.
+
+## Approach
+
+A dummy head simplifies construction. The smaller front node is repeatedly linked to the result, and once one input is exhausted, the unprocessed remainder of the other list is attached.
+
+## Complexity
+
+- Time: `O(m + n)`
+- Space: `O(1)`
 
 ## Solution
 

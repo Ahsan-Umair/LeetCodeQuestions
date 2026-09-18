@@ -1,6 +1,17 @@
-# 682 BaseBall Game
+# 682. Baseball Game
 
-This folder contains the Python solution for **682 BaseBall Game**.
+## Problem
+
+Evaluate a sequence of baseball scoring operations and return the total score after all operations.
+
+## Approach
+
+A list acts as a stack of valid round scores. Integers add a new score, `D` doubles the previous score, `+` sums the previous two scores, and `C` removes the most recent score.
+
+## Complexity
+
+- Time: `O(n)`
+- Space: `O(n)`
 
 ## Solution
 

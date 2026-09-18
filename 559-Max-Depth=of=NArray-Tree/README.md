@@ -1,6 +1,17 @@
-# 559 Max Depth of NArray Tree
+# 559. Maximum Depth of N-ary Tree
 
-This folder contains the Python solution for **559 Max Depth of NArray Tree**.
+## Problem
+
+Return the maximum number of nodes along a path from the root of an N-ary tree to a leaf.
+
+## Approach
+
+A recursive depth-first search computes the maximum depth among all children of a node and adds one for the current node. An empty tree returns zero.
+
+## Complexity
+
+- Time: `O(n)`
+- Space: `O(h) recursion depth`
 
 ## Solution
 

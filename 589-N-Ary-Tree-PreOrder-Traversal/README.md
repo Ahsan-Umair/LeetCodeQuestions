@@ -1,6 +1,17 @@
-# 589 N Ary Tree PreOrder Traversal
+# 589. N-ary Tree Preorder Traversal
 
-This folder contains the Python solution for **589 N Ary Tree PreOrder Traversal**.
+## Problem
+
+Return the preorder traversal of an N-ary tree.
+
+## Approach
+
+A recursive depth-first search appends the current node before recursively visiting its children from left to right.
+
+## Complexity
+
+- Time: `O(n)`
+- Space: `O(h) auxiliary recursion space and O(n) for the result`
 
 ## Solution
 

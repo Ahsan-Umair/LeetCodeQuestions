@@ -1,6 +1,17 @@
-# Find the Index of the First Occurrence in a String
+# 28. Find the Index of the First Occurrence in a String
 
-This folder contains the Python solution for **Find the Index of the First Occurrence in a String**.
+## Problem
+
+Return the starting index of the first occurrence of `needle` in `haystack`, or `-1` if it is absent.
+
+## Approach
+
+Every feasible start position in the haystack is tried. An inner loop compares the needle character by character and stops immediately on a mismatch; the first complete match is returned.
+
+## Complexity
+
+- Time: `O((h - n + 1) × n) in the worst case`
+- Space: `O(1)`
 
 ## Solution
 
