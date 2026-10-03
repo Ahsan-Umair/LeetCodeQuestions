@@ -46,24 +46,25 @@ Explanation:
 - All integers in `nums1` and `nums2` are **unique**.
 - All integers of `nums1` also appear in `nums2`.
 
-## Approach: Monotonic Stack + Hash Map
+## Approach: Brute Force (Linear Scan)
 
 ### Intuition
-Instead of searching for the next greater element for each query individually (brute force), we can precompute the next greater element for **every** element in `nums2` using a **monotonic decreasing stack**, then store the results in a **hash map** for O(1) lookup.
+For each element in `nums1`, find its position in `nums2` using `list.index()`, then scan rightward from that position to find the first element that is strictly greater.
 
 ### Algorithm
-1. Iterate through `nums2` from left to right.
-2. Maintain a stack. For each element, pop all stack elements that are **smaller** than the current element — the current element is their "next greater element". Store these mappings in a hash map.
-3. Push the current element onto the stack.
-4. After the loop, any elements remaining in the stack have no next greater element (map to `-1`).
-5. Build the result array by looking up each element of `nums1` in the hash map.
+1. For each `value` in `nums1`:
+   - Find its index `j` in `nums2` using `nums2.index(value)`.
+   - Iterate from `j + 1` to the end of `nums2`.
+   - If an element greater than `value` is found, append it to the result and break.
+   - If no greater element is found, append `-1`.
+2. Return the result array.
 
 ### Complexity Analysis
 
 | Metric | Value |
 |--------|-------|
-| **Time Complexity** | O(n + m) — where n = len(nums1), m = len(nums2). Each element is pushed/popped from the stack at most once. |
-| **Space Complexity** | O(m) — for the stack and the hash map. |
+| **Time Complexity** | O(n × m) — where n = len(nums1), m = len(nums2). For each element in nums1, we search for its index and then scan rightward. |
+| **Space Complexity** | O(n) — for the result array. |
 
 ## Solution File
 
