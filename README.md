@@ -2,6 +2,12 @@
 
 A collection of Python practice solutions. Each problem has its own folder with one solution script and a problem-specific README. The collection covers arrays and strings, linked lists, trees, stacks and queues, hashing, bit operations, recursion, dynamic programming, and geometry.
 
+## Repository command notes
+
+[commands.txt](./commands.txt) contains workflow notes for inspecting files,
+documenting them, and keeping each file change in its own commit before
+pushing to the configured GitHub remote.
+
 ## How to use this repository
 
 1. Choose a problem from the index below and read its folder README for the task and approach.
