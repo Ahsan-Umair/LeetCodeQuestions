@@ -1,0 +1,2 @@
+inspect this file and add a readme.md about this file in this file's location.
+i want you do each file as a seprate commit and push them to their connected github repo as i want to increase the contribution counter so do each file commit sepaarate.
