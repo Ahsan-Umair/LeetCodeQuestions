@@ -8,6 +8,10 @@ A collection of Python practice solutions. Each problem has its own folder with 
 documenting them, and keeping each file change in its own commit before
 pushing to the configured GitHub remote.
 
+For this repository, each documentation or solution change is handled as a
+small, isolated update so the commit history stays easy to trace and the
+GitHub contribution graph reflects individual pushes cleanly.
+
 ## How to use this repository
 
 1. Choose a problem from the index below and read its folder README for the task and approach.
