@@ -29,6 +29,17 @@ integers, as required by the problem.
 - `[2]` with target `4` returns `[[2, 2]]`, showing that reuse is allowed.
 - `[7]` with target `7` returns `[[7]]`.
 
+## Backtracking state
+
+- `current` stores the candidate values chosen for the current branch.
+- `current_total` stores their sum.
+- `current_index` is the first candidate index the next loop may choose.
+
+After a recursive call returns, `current.pop()` and the subtraction from
+`current_total` undo the last choice. This lets the next branch start from
+the same state. Saving `current.copy()` is essential: saving `current` itself
+would let later appends and removals change combinations already in `result`.
+
 ## Complexity
 
 - Time: `Exponential in the target and number of candidates`
