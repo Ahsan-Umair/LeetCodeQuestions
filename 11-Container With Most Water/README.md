@@ -61,6 +61,17 @@ index `1`, ending the loop. The maximum area found is `49`.
 - `[1, 1]` returns `1`, the area of the only pair.
 - `[3, 3, 3]` returns `6`, using the two outer lines for the largest width.
 
+### Why a wall can be discarded
+
+Suppose the left wall is shorter than or equal to the right wall. Any pair
+that keeps this left wall and moves the right wall closer has less width,
+while its usable height is at most the left wall's height. Such a pair cannot
+beat the area just checked, so the left wall can be discarded safely. The
+same argument applies to the right wall when it is shorter.
+
+When both walls have equal height, either wall can be discarded for this
+reason. This implementation chooses to move `right` in that case.
+
 ## Complexity
 
 - **Time:** `O(n)` — each pointer moves across the array at most once.
