@@ -41,11 +41,25 @@ The shorter line limits the container's height. Moving the taller line would red
 ```text
 height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
 
-left=0, right=8  width=8, height=1  area=8
-left=1, right=8  width=7, height=7  area=49
+left=0, right=8  width=8, height=1  area=8   max_area=8
+left=1, right=8  width=7, height=7  area=49  max_area=49
+left=1, right=7  width=6, height=3  area=18  max_area=49
+left=1, right=6  width=5, height=8  area=40  max_area=49
+left=1, right=5  width=4, height=4  area=16  max_area=49
+left=1, right=4  width=3, height=5  area=15  max_area=49
+left=1, right=3  width=2, height=2  area=4   max_area=49
+left=1, right=2  width=1, height=6  area=6   max_area=49
 ```
 
-The maximum area found is `49`.
+At `left=1, right=6`, both heights are `8`. The code moves `right` because
+the left height is not strictly smaller. The pointers eventually meet at
+index `1`, ending the loop. The maximum area found is `49`.
+
+### Edge cases
+
+- `[0, 0]` returns `0`, since neither line can hold water.
+- `[1, 1]` returns `1`, the area of the only pair.
+- `[3, 3, 3]` returns `6`, using the two outer lines for the largest width.
 
 ## Complexity
 
