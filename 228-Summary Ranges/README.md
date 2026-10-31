@@ -34,6 +34,18 @@ value to reveal that it is complete.
 - `[5]` returns `["5"]`, without an arrow for a single value.
 - `[-2, -1, 0]` returns `["-2->0"]`; consecutive ranges can cross zero.
 
+## Input assumptions and output order
+
+The input is already sorted in strictly increasing order, so it contains no
+duplicate values. Before each loop check, the values from `start` through
+`i - 1` form one consecutive range. A gap closes that range, and the new value
+starts the next one.
+
+The method reads `nums` without modifying it. Ranges are returned in input
+order, and each input value belongs to exactly one returned range. For
+example, `[1, 3, 5]` returns `["1", "3", "5"]`: isolated values stay separate
+rather than being joined across gaps.
+
 ## Complexity
 
 - Time: `O(n)`
