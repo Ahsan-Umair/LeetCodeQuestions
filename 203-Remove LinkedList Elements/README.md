@@ -22,6 +22,27 @@ Input:  head = [1, 2, 6, 3, 4, 5, 6], val = 6
 Output: [1, 2, 3, 4, 5]
 ```
 
+## Consecutive removals
+
+For `head = [6, 6, 1, 6, 6, 2]` and `val = 6`:
+
+1. The first loop advances `head` past both leading `6` nodes to `1`.
+2. With `current` at `1`, the next node is `6`, so that node is bypassed.
+3. `current` stays at `1`. Its new next node is also `6`, so it is bypassed too.
+4. The next node is now `2`, so `current` advances to it and the scan finishes.
+
+The returned list is `[1, 2]`. Moving `current` immediately after a removal
+would skip checking its new next node.
+
+## Edge cases
+
+| Input list | `val` | Returned list |
+|---|---|---|
+| `[]` | `6` | `[]` |
+| `[6, 6]` | `6` | `[]` |
+| `[1, 2]` | `6` | `[1, 2]` |
+| `[1, 6, 6]` | `6` | `[1]` |
+
 ## Complexity
 
 - **Time:** `O(n)`, where `n` is the number of nodes in the list.
