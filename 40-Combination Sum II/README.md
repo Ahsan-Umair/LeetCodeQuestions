@@ -33,6 +33,19 @@ indices, so the result is `[[1, 1], [2]]`.
 - `[3]` with target `3` returns `[[3]]`; the candidate is used once.
 - Sorting happens in place, so the input list may be reordered.
 
+## Recursive state and cleanup
+
+Each call keeps `sum(path) + remaining == target`: `path` contains the values
+already chosen, and `remaining` is the amount still needed. `start` is the
+first candidate index that the next choice may use.
+
+Choosing index `i` starts the next call at `i + 1`, so the same input element
+cannot be reused. When that call returns, `path.pop()` removes the last
+choice before the loop tries another candidate.
+
+When `remaining` reaches zero, `path.copy()` saves a separate list in `ans`.
+Without the copy, later changes to `path` would also change saved results.
+
 ## Complexity
 
 - Time: `O(2^n)` in the worst case, excluding the cost of copying results
