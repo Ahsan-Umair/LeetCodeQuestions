@@ -43,6 +43,18 @@ would skip checking its new next node.
 | `[1, 2]` | `6` | `[1, 2]` |
 | `[1, 6, 6]` | `6` | `[1]` |
 
+## Why the null checks come first
+
+The first loop checks `head is not None` before reading `head.val`. This
+handles an empty input and also lets the loop stop safely when every node
+has been removed.
+
+The traversal checks both `current` and `current.next` before reading
+`current.next.val`. If the list is empty, there is no current node; if the
+current node is the last one, there is no next node to inspect. These checks
+keep both cases safe. Python evaluates `and` from left to right and stops
+as soon as a condition is false, so the order of the checks matters.
+
 ## Complexity
 
 - **Time:** `O(n)`, where `n` is the number of nodes in the list.
