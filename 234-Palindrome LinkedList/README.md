@@ -39,6 +39,19 @@ even-length list, the reversed part contains exactly half the nodes.
 - `[1, 2]` returns `False` at the first comparison.
 - `[1, 2, 2, 1]` returns `True` after comparing the two pairs.
 
+## Keeping track of nodes during reversal
+
+`prev` points to the head of the part already reversed, while `current`
+points to the next node to reverse. Each iteration performs four steps:
+
+1. Save `current.next` in `temp` before changing the link.
+2. Set `current.next = prev` to point the current node backward.
+3. Move `prev` to `current`, making it the new reversed head.
+4. Move `current` to `temp` to continue through the original list.
+
+Saving `temp` preserves the route to the remaining nodes. After the loop,
+`current` is `None`, and `prev` is the head used by the comparison loop.
+
 ## Complexity
 
 - Time: `O(n)`
