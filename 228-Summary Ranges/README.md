@@ -48,8 +48,12 @@ rather than being joined across gaps.
 
 ## Complexity
 
-- Time: `O(n)`
-- Space: `O(n)` for the result
+- Time: `O(n)`, where `n` is the number of input values. Each value is
+  inspected once during the scan.
+- Auxiliary space: `O(1)`, excluding the returned list. Only the current
+  range's start index and the scan index need to be tracked.
+- Output space: `O(n)` for `ans`. When no two values are consecutive, each
+  input value produces its own string in the result.
 
 ## Solution
 
