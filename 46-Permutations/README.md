@@ -31,6 +31,17 @@ Output:
 ]
 ```
 
+## Small backtracking walkthrough
+
+For `nums = [1, 2]`, the first branch builds `[1]`, then `[1, 2]`.
+The completed path is copied into `result`. Returning from the recursive
+calls removes `2` and then `1`, restoring `path` to `[]`.
+
+The next branch starts with `2` and builds `[2, 1]`. After that result is
+saved and the choices are undone, the method returns `[[1, 2], [2, 1]]`.
+At each level, `num in path` prevents choosing a value already in that
+permutation. This works because the problem guarantees distinct input values.
+
 ## Complexity
 
 For `n` input values:
