@@ -11,10 +11,10 @@ The solution uses sorted backtracking:
 1. Sort `nums` so equal values are adjacent.
 2. Track the current permutation in `path` and used indices in `used`.
 3. Skip an index that has already been used in the current permutation.
-4. Skip a duplicate value when the identical value immediately before it has not been used at the current recursion level.
+4. Skip a duplicate value when the identical value immediately before it has not been selected in the current path.
 5. Add each completed permutation to `result`.
 
-The duplicate check allows the first copy of a value to be selected before another identical copy at the same depth, preventing duplicate branches while still allowing equal values to appear in different positions.
+The duplicate check requires equal values to be selected in index order within a path. This prevents duplicate branches while still allowing repeated values to appear in the same permutation.
 
 ## Example
 
@@ -28,6 +28,19 @@ Output:
   [2, 1, 1]
 ]
 ```
+
+## Why `used[i - 1]` matters
+
+For the sorted input `[1, 1, 2]`, the equal `1` values are at indices `0` and `1`.
+
+- With `path = []`, index `0` is available. Index `1` is skipped because
+  `used[0]` is false: starting with the second `1` would repeat the same branch.
+- After choosing index `0`, `path = [1]` and `used[0]` is true. Index `1` is
+  now allowed, so the method can build `[1, 1, 2]` using both input elements.
+
+The check gives equal values a consistent index order within each path.
+It prevents duplicate branches while allowing the input's repeated values
+to appear together in a permutation.
 
 ## Complexity
 
