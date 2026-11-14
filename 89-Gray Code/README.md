@@ -27,6 +27,20 @@ Add bit 1:   [0, 1, 3, 2]
 Output: [0, 1, 3, 2]
 ```
 
+## Why the reflected half is reversed
+
+For two bits, the existing sequence is `[00, 01]`. Reversing it gives
+`[01, 00]`; setting the new bit produces `[11, 10]`. Appending that half
+creates `[00, 01, 11, 10]`.
+
+At the join, `01` and `11` differ only in the new bit. Inside the reflected
+half, reversing the old order preserves the one-bit difference between
+neighbors. The last value, `10`, also differs from the first value, `00`,
+by exactly one bit, satisfying the wraparound requirement.
+
+Appending the new half in the original order would instead create
+`[00, 01, 10, 11]`, where the middle transition `01` to `10` changes two bits.
+
 ## Complexity
 
 - **Time:** `O(2^n)`, because the sequence contains `2^n` values.
