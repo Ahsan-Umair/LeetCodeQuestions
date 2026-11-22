@@ -25,7 +25,20 @@ The solution uses a **two-pointer** technique to solve the problem in a single p
 - `zero_pos` — tracks the position where the next non-zero element should be placed.
 - `i` — iterates through every element in the array.
 
-Whenever a non-zero element is found at index `i`, it is swapped with the element at `zero_pos`, and `zero_pos` is incremented. This ensures all non-zero elements bubble to the front in their original order, while zeros naturally drift to the end.
+Whenever the scan finds a non-zero value at index `i`, it swaps that value
+into `zero_pos` and advances `zero_pos` by one.
+
+### Why the swap preserves order
+
+Before each iteration, `nums[:zero_pos]` contains the non-zero values already
+seen, in their original order. Any positions from `zero_pos` up to `i` (exclusive)
+contain zeros. A non-zero value at `i` therefore lands immediately after the
+previous non-zero values. If `zero_pos == i`, the value is already in the
+right place and the swap leaves it there.
+
+After the final iteration, every position from `zero_pos` onward contains a
+zero. For example, `[-2, 0, -1, 0]` becomes `[-2, -1, 0, 0]`. Negative values
+keep their order too, because the condition skips only `0`.
 
 ### Walkthrough
 
