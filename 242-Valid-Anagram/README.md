@@ -17,6 +17,20 @@ The `isAnagram` method:
 
 The strings are anagrams exactly when their character-frequency dictionaries are equal.
 
+## Why the counts matter
+
+Comparing the set of characters loses information about repetitions. Both
+`"aab"` and `"abb"` contain `a` and `b`, but their counts disagree.
+
+| String | Count of `a` | Count of `b` | Anagram of `"aab"` |
+|---|---:|---:|---|
+| `"aab"` | 2 | 1 | Yes |
+| `"aba"` | 2 | 1 | Yes |
+| `"abb"` | 1 | 2 | No |
+
+A frequency dictionary records the number of copies of each character and
+ignores their positions, so rearranging the characters leaves the counts equal.
+
 ## Complexity
 
 - **Time:** $O(n)$, where $n$ is the length of the strings.
